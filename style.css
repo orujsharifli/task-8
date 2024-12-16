@@ -1,0 +1,258 @@
+/* Task 1 */
+.circle-container {
+    display: flex;
+    gap: 16px;
+}
+
+.circle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    font-size: 36px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.circle.green {
+    background-color: green;
+}
+
+.circle.orange {
+    background-color: orange;
+}
+
+.circle.red {
+    background-color: red;
+}
+
+.circle::after {
+    position: absolute;
+    content: "";
+    width: 105%;
+    height: 105%;
+    border-radius: 50%;
+    border-width: 2.5px;
+    border-style: dashed;
+    animation: rotate 5s linear infinite;
+}
+
+.circle.green::after {
+    border-color: green;
+}
+
+.circle.orange::after {
+    border-color: orange;
+}
+
+.circle.red::after {
+    border-color: red;
+}
+
+/* Keyframes */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Task 3 */
+.circle-zoom {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: aqua;
+    animation: grow-shrink 3s ease-in-out infinite;
+}
+
+.circle-zoom:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.circle-zoom:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.circle-zoom:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.circle-zoom:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+.circle-zoom:nth-child(5) {
+    animation-delay: 2s;
+}
+
+@keyframes grow-shrink {
+
+    0%,
+    100% {
+        transform: scale(1);
+        background-color: aqua;
+    }
+
+    33.33% {
+        transform: scale(2);
+        background-color: aquamarine;
+    }
+}
+
+/* Task 5 */
+.coffee-cup-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    background-color: #8acdeb;
+}
+
+.coffee-cup-container>div {
+    position: absolute;
+    bottom: 50px;
+}
+
+.steam {
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-top: -75px;
+    margin-left: 75px;
+    z-index: 0;
+    opacity: 0;
+}
+
+.steam:nth-child(1) {
+    -webkit-animation: steam1 4s ease-out infinite;
+    animation: steam1 ease-out infinite;
+}
+
+.steam:nth-child(3) {
+    -webkit-animation: steam1 4s ease-out 1s infinite;
+    animation: steam1 4s ease-out 1s infinite;
+}
+
+@-webkit-keyframes steam1 {
+    0% {
+        transform: translateY(0) translateX(0) scale(0.25);
+        opacity: .2;
+    }
+
+    100% {
+        transform: translateY(-200px) translateX(-20px) scale(1);
+        opacity: 0;
+    }
+}
+
+@keyframes steam1 {
+    0% {
+        transform: translateY(0) translateX(0) scale(0.25);
+        opacity: .2;
+    }
+
+    100% {
+        transform: translateY(-200px) translateX(-20px) scale(1);
+        opacity: 0;
+    }
+}
+
+.steam:nth-child(2) {
+    -webkit-animation: steam2 4s ease-out 0.5s infinite;
+    animation: steam2 4s ease-out 0.5s infinite;
+}
+
+.steam:nth-child(4) {
+    -webkit-animation: steam2 4s ease-out 1.5s infinite;
+    animation: steam2 4s ease-out 1.5s infinite;
+}
+
+@-webkit-keyframes steam2 {
+    0% {
+        transform: translateY(0) translateX(0) scale(0.25);
+        opacity: .2;
+    }
+
+    100% {
+        transform: translateY(-200px) translateX(20px) scale(1);
+        opacity: 0;
+    }
+}
+
+@keyframes steam2 {
+    0% {
+        transform: translateY(0) translateX(0) scale(0.25);
+        opacity: .2;
+    }
+
+    100% {
+        transform: translateY(-200px) translateX(20px) scale(1);
+        opacity: 0;
+    }
+}
+
+.cup-body {
+    position: absolute;
+    height: 200px;
+    width: 300px;
+    border-radius: 0 0 150px 150px;
+    background-color: #fff;
+    margin: auto;
+    display: inline-block;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.cup-shade {
+    position: relative;
+    height: 300px;
+    width: 200px;
+    background-color: #f3f3f3;
+    display: inline-block;
+    margin-left: 42%;
+    margin-top: -3px;
+    transform: rotate(50deg);
+    z-index: 1;
+}
+
+.cup-handle {
+    position: relative;
+    height: 75px;
+    width: 80px;
+    border-radius: 0 150px 150px 0;
+    border: 15px solid #f3f3f3;
+    margin-bottom: 95px;
+    margin-left: 250px;
+    display: inline-block;
+    z-index: 0;
+}
+
+.saucer {
+    position: relative;
+    height: 30px;
+    width: 300px;
+    border-radius: 0 0 100px 100px;
+    background-color: #f9f9f9;
+    margin-top: -32px;
+    margin-left: 5px;
+    z-index: 2;
+}
+
+.shadow {
+    height: 10px;
+    width: 300px;
+    border-radius: 50%;
+    margin-top: -5px;
+    margin-left: 6px;
+    background-color: #7bb8d4;
+}
